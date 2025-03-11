@@ -1,0 +1,19 @@
+name: cpp-dev-prj
+
+services:
+  cpp-dev:
+    image: cpp-dev-img
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cpp-dev-cont
+    volumes:
+      - ./:/workspace # mount the current directory to /workspace
+    cap_add:
+      - SYS_PTRACE
+    stdin_open: true  # -i (interactive)
+    tty: true         # -t (pseudo-TTY)
+
+networks:
+  default:
+    name: cpp-dev-net
