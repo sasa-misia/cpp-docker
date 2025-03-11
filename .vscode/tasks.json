@@ -2,6 +2,19 @@
     "version": "2.0.0",
     "tasks": [
         {   
+            "label": "whatDev",
+            "type": "shell",
+            "command": "echo 'You are in a linux environment'",
+            "windows": {
+                "command": "echo 'You are in a windows environment'"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {   
             "label": "Create bin dir",
             "type": "shell",
             "command": "mkdir -p ${fileDirname}/bin",
@@ -11,6 +24,7 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
+            "dependsOn": ["whatDev"],
             "problemMatcher": [],
             "group": "build"
         },

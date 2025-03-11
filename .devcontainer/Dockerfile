@@ -18,4 +18,4 @@ WORKDIR /workspace
 USER cppuser
 
 # default command (shell)
-CMD ["/bin/bash"]
+CMD ["bash"]
