@@ -13,8 +13,9 @@ services:
       - SYS_PTRACE
     stdin_open: true  # -i (interactive)
     tty: true         # -t (pseudo-TTY)
-    command: sleep infinity
+    command: /bin/sh
     user: cppuser  # Utente non-root
+    restart: unless-stopped
 
 networks:
   default:
