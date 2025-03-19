@@ -36,4 +36,4 @@ RUN mkdir -p /home/$USERNAME/bin
 ENV PATH="/home/$USERNAME/bin:${PATH}"
 
 # default command (shell)
-CMD ["bin/bash"]
+CMD ["/bin/bash"]

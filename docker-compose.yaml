@@ -7,14 +7,14 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: cpp-dev-cont
+    user: cppuser  # non-root user
     volumes:
       - ./:/workspace # mount the current directory to /workspace
     cap_add:
       - SYS_PTRACE
     stdin_open: true  # -i (interactive)
     tty: true         # -t (pseudo-TTY)
-    command: /bin/sh
-    user: cppuser  # Utente non-root
+    command: tail -f /dev/null # or command: /bin/bash
     restart: unless-stopped
 
 networks:
