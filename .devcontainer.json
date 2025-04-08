@@ -1,29 +1,32 @@
 {
     "name": "C++ Development Environment",
     "dockerComposeFile": "docker-compose.yaml",
-    "service": "cpp-dev",
+    "service": "cpp-dev-srv",
     "workspaceFolder": "/workspace",
     
-    "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash",
-        "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-        "editor.formatOnSave": true,
-        "files.trimTrailingWhitespace": true,
-        "C_Cpp.clang_format_style": "file",
-        "C_Cpp.clang_format_fallbackStyle": "Google",
-        "C_Cpp.intelliSenseEngine": "Default"
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+                "editor.formatOnSave": true,
+                "files.trimTrailingWhitespace": true,
+                "C_Cpp.clang_format_style": "file",
+                "C_Cpp.clang_format_fallbackStyle": "Google",
+                "C_Cpp.intelliSenseEngine": "default"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",        
+                "twxs.cmake",                   
+                "jeff-hykin.better-cpp-syntax",   
+                "cschlosser.doxdocgen",    
+                "matepek.vscode-catch2-test-adapter",
+                "ms-vscode.cpptools-extension-pack", 
+                "xaver.clang-format"
+            ]
+        }
     },
-    
-    "extensions": [
-        "ms-vscode.cpptools",
-        "ms-vscode.cmake-tools",        
-        "twxs.cmake",                   
-        "jeff-hykin.better-cpp-syntax",   
-        "cschlosser.doxdocgen",    
-        "matepek.vscode-catch2-test-adapter",
-        "ms-vscode.cpptools-extension-pack", 
-        "xaver.clang-format"
-    ],
     
     "postCreateCommand": "echo 'C++ development environment is ready in vs code!'",
     
