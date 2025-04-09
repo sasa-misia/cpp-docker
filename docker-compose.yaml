@@ -12,11 +12,13 @@ services:
 
     environment:
       - WORK_DIR=/workspace
+      - CURR_USR=cppuser
 
     user: cppuser  # non-root user
 
     volumes:
-      - ./:/workspace # mount the current directory to WORKDIR in the container
+      - ./data:/workspace/data # mount the current data directory to WORKDIR/data in the container
+      - ./scripts:/workspace/scripts # mount the current scripts directory to WORKDIR/scripts in the container
 
     cap_add:
       - SYS_PTRACE # for gdb, remove if in production
@@ -26,6 +28,9 @@ services:
 
     stdin_open: true  # -i (interactive)
     tty: true         # -t (pseudo-TTY)
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
     command: /bin/bash -c "echo 'cpp-dev service is running. 
                            If your terminal is stuck, press CTRL+C and use \"docker compose up -d\" 
