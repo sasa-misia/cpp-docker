@@ -30,10 +30,5 @@
     
     "postCreateCommand": "echo 'C++ development environment is ready in vs code!'",
     
-    "remoteUser": "cppuser",
-    
-    "runArgs": [
-        "--cap-add=SYS_PTRACE",  // necessary for debugger to work
-        "--security-opt", "seccomp=unconfined"  // better support for debugging
-    ]
+    "remoteUser": "cppuser"
 }

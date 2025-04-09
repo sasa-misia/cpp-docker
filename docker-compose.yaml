@@ -19,12 +19,14 @@ services:
       - ./:/workspace # mount the current directory to WORKDIR in the container
 
     cap_add:
-      - SYS_PTRACE
+      - SYS_PTRACE # for gdb, remove if in production
+
+    security_opt:
+      - seccomp:unconfined # for gdb, remove if in production
 
     stdin_open: true  # -i (interactive)
     tty: true         # -t (pseudo-TTY)
 
-    # command: tail -f /dev/null # or command: /bin/bash
     command: /bin/bash -c "echo 'cpp-dev service is running. 
                            If your terminal is stuck, press CTRL+C and use \"docker compose up -d\" 
                            to launch this service in background (detached mode).' && 
